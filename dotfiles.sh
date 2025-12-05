@@ -62,10 +62,14 @@ if [ "$DRY_RUN" = true ]; then
     echo "[DRY RUN] Would check for existing dotfiles and back them up"
     echo "[DRY RUN] dotfiles checkout (first attempt to identify conflicts)"
 else
-    # Backup conflicting files (grep returns 1 if no matches, so use || true)
-    dotfiles checkout 2>&1 | grep -E "\s+\." | awk '{print $1}' | while read -r file; do
-        mkdir -p "$(dirname "$HOME/.dotfiles-backup/$file")"
-        mv "$HOME/$file" "$HOME/.dotfiles-backup/$file"
+    # Backup ALL conflicting files (git indents them with tabs)
+    # The pattern matches any tab-indented line from git's error output
+    dotfiles checkout 2>&1 | awk '/^\t/{gsub(/^\t/, ""); print}' | while read -r file; do
+        if [ -e "$HOME/$file" ]; then
+            mkdir -p "$(dirname "$HOME/.dotfiles-backup/$file")"
+            mv "$HOME/$file" "$HOME/.dotfiles-backup/$file"
+            echo "Backed up: $file"
+        fi
     done || true
 fi
 
