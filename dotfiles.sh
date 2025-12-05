@@ -91,6 +91,23 @@ else
     echo "alias dotfiles='/usr/bin/git --git-dir=\$HOME/.dotfiles/ --work-tree=\$HOME'" >> ~/.bashrc
 fi
 
+# Install Devbox for package management
+echo ""
+echo "Installing Devbox..."
+if [ "$DRY_RUN" = true ]; then
+    echo "[DRY RUN] curl -fsSL https://get.jetify.com/devbox | bash"
+    echo "[DRY RUN] devbox global install"
+else
+    curl -fsSL https://get.jetify.com/devbox | bash -s -- -f
+    # Source devbox to make it available
+    export PATH="$HOME/.nix-profile/bin:$PATH"
+    if [ -f "$HOME/.local/bin/devbox" ]; then
+        echo "Installing global packages from devbox.json..."
+        "$HOME/.local/bin/devbox" global install
+    fi
+fi
+
 echo ""
 echo "Done! Restart your shell or run: source ~/.bashrc"
+echo "Then run 'devbox global install' if packages weren't installed."
 
