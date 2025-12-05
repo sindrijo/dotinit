@@ -3,8 +3,8 @@ set -euo pipefail
 
 # Bootstrap dotfiles on a new system (optimized for WSL)
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/main/dotfiles.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/main/dotfiles.sh | bash -s -- X
+#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- X
 
 # Dry-run mode (default). Pass 'X' or '--execute' to actually run commands
 DRY_RUN=true

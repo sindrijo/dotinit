@@ -10,10 +10,10 @@ Sets up dotfiles on a new system (optimized for WSL).
 
 ```bash
 # Dry run (see what would happen)
-curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/main/dotfiles.sh | bash
+curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
 
 # Execute
-curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/main/dotfiles.sh | bash -s -- X
+curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- X
 ```
 
 **What it does:**
