@@ -56,6 +56,13 @@ dotfiles() {
     /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" "$@"
 }
 
+# Ensure remote is configured (git clone should set this, but be explicit)
+if [ "$DRY_RUN" = true ]; then
+    echo "[DRY RUN] dotfiles remote set-url origin $DOTFILES_REPO"
+else
+    dotfiles remote set-url origin "$DOTFILES_REPO"
+fi
+
 run mkdir -p ~/.dotfiles-backup
 
 if [ "$DRY_RUN" = true ]; then
