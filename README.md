@@ -14,10 +14,10 @@ Execute:
 curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
 ```
 
-Dry run (see what would happen):
+Dry run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- -n
+curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- --dryrun
 ```
 
 **What it does:**

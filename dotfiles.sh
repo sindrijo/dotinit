@@ -4,21 +4,21 @@ set -euo pipefail
 # Bootstrap dotfiles on a new system (optimized for WSL)
 # Usage:
 #   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- -n
+#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- --dryrun
 
 DRY_RUN=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -n|--dry-run)
+        --dryrun)
             DRY_RUN=true
             shift
             ;;
         -h|--help)
-            echo "Usage: dotfiles.sh [-n|--dry-run] [-h|--help]"
+            echo "Usage: dotfiles.sh [--dryrun] [-h|--help]"
             echo ""
             echo "Options:"
-            echo "  -n, --dry-run  Show what would be done without making changes"
+            echo "  --dryrun  Show what would be done without making changes"
             echo "  -h, --help     Show this help message"
             exit 0
             ;;
