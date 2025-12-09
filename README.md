@@ -8,16 +8,16 @@ Bootstrap scripts for setting up new machines.
 
 Sets up dotfiles on a new system (optimized for WSL).
 
-Dry run (see what would happen):
+Execute:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
 ```
 
-Execute:
+Dry run (see what would happen):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- X
+curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- -n
 ```
 
 **What it does:**

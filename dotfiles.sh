@@ -4,16 +4,34 @@ set -euo pipefail
 # Bootstrap dotfiles on a new system (optimized for WSL)
 # Usage:
 #   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash
-#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- X
+#   curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/dotfiles.sh | bash -s -- -n
 
-# Dry-run mode (default). Pass 'X' or '--execute' to actually run commands
-DRY_RUN=true
-if [[ "${1:-}" == "X" ]] || [[ "${1:-}" == "--execute" ]]; then
-    DRY_RUN=false
-fi
+DRY_RUN=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -n|--dry-run)
+            DRY_RUN=true
+            shift
+            ;;
+        -h|--help)
+            echo "Usage: dotfiles.sh [-n|--dry-run] [-h|--help]"
+            echo ""
+            echo "Options:"
+            echo "  -n, --dry-run  Show what would be done without making changes"
+            echo "  -h, --help     Show this help message"
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            echo "Use -h or --help for usage"
+            exit 1
+            ;;
+    esac
+done
 
 if [ "$DRY_RUN" = true ]; then
-    echo "DRY RUN MODE - No changes will be made. Pass 'X' to execute."
+    echo "DRY RUN MODE - No changes will be made."
     echo ""
 fi
 
