@@ -96,12 +96,6 @@ else
     dotfiles branch --set-upstream-to=origin/main main
 fi
 
-if [ "$DRY_RUN" = true ]; then
-    echo "[DRY RUN] echo \"alias dotfiles='/usr/bin/git --git-dir=\$HOME/.dotfiles/ --work-tree=\$HOME'\" >> ~/.bashrc"
-else
-    echo "alias dotfiles='/usr/bin/git --git-dir=\$HOME/.dotfiles/ --work-tree=\$HOME'" >> ~/.bashrc
-fi
-
 # Install Devbox for package management
 echo ""
 echo "Installing Devbox..."
