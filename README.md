@@ -22,7 +22,7 @@ curl -fsSL https://raw.githubusercontent.com/sindrijo/dotinit/refs/heads/main/do
 
 **What it does:**
 - Configures git to use Windows credential manager (WSL)
-- Clones dotfiles as a bare repo to `~/.dotfiles`
+- Clones [dotfiles](https://github.com/sindrijo/dotfiles) as a bare repo to `~/.dotfiles`
 - Backs up any conflicting files
 - Sets up the `dotfiles` alias
 
