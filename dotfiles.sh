@@ -88,8 +88,12 @@ fi
 
 if [ "$DRY_RUN" = true ]; then
     echo "[DRY RUN] dotfiles config --local status.showUntrackedFiles no"
+    echo "[DRY RUN] dotfiles config --local push.autoSetupRemote true"
+    echo "[DRY RUN] dotfiles branch --set-upstream-to=origin/main main"
 else
     dotfiles config --local status.showUntrackedFiles no
+    dotfiles config --local push.autoSetupRemote true
+    dotfiles branch --set-upstream-to=origin/main main
 fi
 
 if [ "$DRY_RUN" = true ]; then
